@@ -1,0 +1,23 @@
+body{
+    height: 100vh;
+    background: linear-gradient(#ccc, #000);
+}
+
+.wrapper{
+    width: 800px;
+    border: 1px solid red;
+    margin: 200px auto;
+    padding: 20px;
+    text-align: center;
+}
+.wrapper .nav{
+    justify-content: center;
+}
+
+.wrapper .btn{
+    background-color: #007bff;
+    border-radius: 5px !important;
+}
+.wrapper .reset{
+    margin-right: 10px;
+}
