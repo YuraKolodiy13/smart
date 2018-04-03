@@ -2,31 +2,29 @@ const submit = document.querySelector('.wrapper .submit');
 const username = document.querySelector('.wrapper .username');
 const email = document.querySelector('.wrapper .email');
 const message = document.querySelector('.wrapper .message');
+const file = document.querySelector('.wrapper .file');
 
-// function check() {
-//     if(username.value != 0 && email.value != 0 && message.value != 0) {
-//         submit.disabled = false;
-//     }else {
-//         submit.disabled = true;
-//     }
-//     if(username.value == 0){
-//         username.style.border = '1px solid red';
-//     }else {
-//         username.style.border = '';
-//     }
-//     if(email.value == 0){
-//         email.style.border = '1px solid red';
-//     }else {
-//         email.style.border = '';
-//     }
-// }
-// document.body.addEventListener('input', check);
+const correctEmail = ['gmail.com', 'outlook.com'];
+
+function check() {
+    if(file.value != 0){
+        file.disabled = true;
+        file.parentNode.style.opacity = .7;
+    }
+    if(username.value != 0 && email.value != 0  && message.value != 0 && file.value != 0) {
+        submit.disabled = false;
+    }else {
+        submit.disabled = true;
+    }
+}
+document.body.addEventListener('input', check);
+document.body.addEventListener('change', check);
 
 let usernameValue = username.value;
 let emailValue = email.value;
 
 username.addEventListener('input', onInput);
-email.addEventListener('input', onInputEmail);
+// email.addEventListener('input', onInputEmail);
 
 function onInput(e){
     var newValue = e.target.value;
