@@ -5,13 +5,20 @@ const message = document.querySelector('.wrapper .message');
 const file = document.querySelector('.wrapper .file');
 
 const correctEmail = ['gmail.com', 'outlook.com'];
+var domen;
 
 function check() {
     if(file.value != 0){
         file.disabled = true;
         file.parentNode.style.opacity = .7;
     }
-    if(username.value != 0 && email.value != 0  && message.value != 0 && file.value != 0) {
+    domen = email.value.split('@');
+    if(correctEmail.indexOf(domen[1]) == -1){
+        email.style.border = '1px solid red';
+    }else {
+        email.style.borderColor = 'green';
+    }
+    if(username.value != 0 && email.value != 0  && message.value != 0 && file.value != 0 && correctEmail.indexOf(domen[1]) != -1) {
         submit.disabled = false;
     }else {
         submit.disabled = true;
@@ -24,7 +31,7 @@ let usernameValue = username.value;
 let emailValue = email.value;
 
 username.addEventListener('input', onInput);
-// email.addEventListener('input', onInputEmail);
+email.addEventListener('input', onInputEmail);
 
 function onInput(e){
     var newValue = e.target.value;
@@ -43,4 +50,6 @@ function onInputEmail(e){
     }
     emailValue = newValueEmail;
 }
+
+
 
